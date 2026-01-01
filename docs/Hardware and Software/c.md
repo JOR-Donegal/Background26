@@ -11,7 +11,7 @@ Electrons flowing through a resistor collide with material in the resistor body,
 
 Resistance is measured in Ohms (Ω) and an ohm is defined by the amount of resistance that causes 1A of current to flow from a 1V source. 
 
-The amount of power (in Watts) dissipated in a resistor can be calculated using the equation P= I*V = I ^2^ R A resistor that can dissipate about 5 Watts of power would be about the size of a pen and a resistor that can only dissipate 1/8 Watt is about the size of a grain of rice. 
+The amount of power (in Watts) dissipated in a resistor can be calculated using the equation P= I*V = I^2^R A resistor that can dissipate about 5 Watts of power would be about the size of a pen and a resistor that can only dissipate 1/8 Watt is about the size of a grain of rice. 
 
 If a resistor is placed in a circuit where it must dissipate more that its intended power, it will melt!
 
@@ -56,7 +56,7 @@ One version of the diode is the LED or light emitting diode. A property of the j
 ## Transistors
 A transistor is an active electronic device with (at least) three terminals. They generally consist of three layers of a semiconductor (normally silicon) sandwiched together. 
 
-A transistor can act like an amplifier. A voltage or current applied to an input control terminal to change the current flowing through another pair of output terminals; this property is called gain. Because the controlled power can be higher than the controlling power, a transistor can amplify a signal. This is the basis for the audio part of all amplifiers, stereo systems, iPods, etc.
+A transistor can act like an amplifier. A voltage or current applied to an input control terminal to change the current flowing through another pair of output terminals; this property is called gain. Because the controlled power can be higher than the controlling power, a transistor can amplify a signal. This is the basis for the audio subsystems of all amplifiers, stereo systems, iPods, etc.
 
 A transistor can act also like a switch. When no voltage is applied to an input control terminal, no current flows through another pair of output terminals. Alternatively, when a voltage over a particular threshold is applied to the input control terminal, then current flows through the output terminals.  This is the basis for digital logic and all modern binary computers.
 
