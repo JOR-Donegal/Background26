@@ -69,3 +69,7 @@ For example, a 7400 was a package with 14 legs which had four NAND gates inside.
 </figure>
 
 In later circuits, the 74xxx series were superceeded by 4xxxx series, using CMOS transistors and lower power.
+
+Based on the availability of the early silicon chips, computers began to be built which were commercially viable. The IBM 360 series revolutionised early computing using these kinds of technologies. Throughout the 1970’s mini-computers and mainframes were developed and the computing industry blossomed.
+
+I still use these chips when designing and building simple prototypes.
