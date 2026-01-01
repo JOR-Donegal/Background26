@@ -14,6 +14,20 @@ Boolean operators let us look at the relationship between the state of these var
 
 In logic terms, IF A AND B THEN C. 
 
+This behaviour is the Boolean operator __AND__. This is formally represented by the symbol and truth tables shown in Fig 1. By convention, we show our Boolean expressions as 1 and 0, the binary levels used in both digital logic and in computing.
+
+The second Boolean operator we will consider is the OR gate, Fig 2. In this case if either input A or input B is equal to 1 (true) then the output of the gate will be 1 (true).
+
+The output is 0 (false) only when both inputs are 0 (false).
+
+<figure>
+<img src = "https://jor-donegal.github.io/Background26/images/fig2.jpg">
+<figcaption>Fig 2. An OR gate, truth table and symbol.</figcaption>
+</figure>
+
+
+
+
 
 
 
