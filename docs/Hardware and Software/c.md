@@ -1,5 +1,5 @@
-# Digital Logic - Memory
-In this section, I am going to build up gates into useful subsystems.
+# Memory
+In this section, I am going to build up gates into useful subsystems, first memory!
 
 ## The Set/Rest Latch
 The first thing that we needed to do useful calculations with these gates was to have a way of storing numbers (remember, all numbers are represented in binary within the computer); this is the concept of _memory_. We need a circuit which can store a single bit of data; we call a circuit like this a _latch_. There are several types of latch available in TTL which were built into early computers (and are now integrated into much larger circuits).
