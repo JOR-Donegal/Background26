@@ -1,30 +1,77 @@
-# The emergence of processors
+# Logic Gates
+Once we have basic components, we can build for complex circuits, _logic gates_.
 
-Previously in these notes, I argued that the field of computing is still new and immature. In the mid-1980s, the PC had only just been developed and for serious business or automation applications, mini-computers and mainframes were used. These computers were large and expensive, the decision to implement was taken with great care and normally built around a definite business case.
+The study of logic goes back (at least!) to our earliest cultural origins; the Arabs, Greeks, Chinese and Indians all had advanced concepts which were the origin of our modern science.  In modern computer science and mathematics, we trace our reasoning back to Aristotle and the early Greek mathematicians, as we strove to formally describe reasoning, arguments and proofs in an unambiguous mathematical language. The term logic itself comes from the Greek λογική logikē or the study or arguments. 
 
-For software projects I was involved with back then, the cycle from pre-sales to commissioning was typically a year and required specialist training and a deep technical knowledge. Code was written in assembly language native to the platform and was very economical; a manufacturing plant was controlled entirely with a minicomputer having 128-256KB of main memory. Software was proprietary, but the code listings were shipped with the system (on paper!) and live code could be edited by field staff or indeed the customer.
+Some of the most important work in logic (in fact the basis of modern computer theory) was carried out by George Boole at UCC from 1849. Boole established the system now known as Boolean algebra, where variables are truth values true or false. The device which we based our electronic revolution on was the transistor; electronic switches which could have the values on or off. Boolean algebra was ideally suited to this binary environment has been fundamental to our development of digital logic, modern electronics, and eventually computing. In the 1930’s, Claude Shannon applied Boolean algebra to circuits built using switches, providing the foundations for modern computing.
 
-Software was modular, once the functionality of a module was confirmed by years of extended service, the building of a software load became an assembly task. Bugs were the responsibility of the supplier and were resolved expeditiously as penalties were a standard part of a project’s contracts; bugs on mature modules were rare. Software patches of any kind had a formal process associated with specification, implementation, test and documentation, but were infrequently required. The upgrading or changing of the base software was a project driven by customer requirements for functionality and might be carried out twice a decade; if the system was working, there was no reason to change hardware or software. A hacker was someone with a very good understanding of hardware and software and the term was a compliment!
+Boolean expressions are normally true or false, or on and off, or 1 and 0, all are representations of the same thing. In any system, we can have Boolean variables which can contain a Boolean expression. 
 
-Staff training was extensive and systematic, there were mentoring and certification programs. A new engineer served a period similar to an apprenticeship. In one such company, despite being a graduate, I spent several months in overalls, working in every department on the factory floor before being deployed to the field. This was a standard methodology employed.
+Boolean operators let us look at the relationship between the state of these variables and an output. Let’s go with variable C for an output.  We know that if A is on (true) and B is on (true) then the machine is safe and C should be equal to on (true) But look at all the possible cases that give rise to an output. We call this a truth table; it allows us to look at all possible inputs and have a predictable and desired output. 
 
-The business model that supported all this was to install at a small profit, but to make substantial margin on rolling service contracts. From every perspective, it was in the supplier’s interest to have no unscheduled downtime, no equipment failures, no discernible software bugs; stability. There were sites where the customer had never experienced unscheduled downtime over a twenty year or more lifetime of the system. Scheduled maintenance was carried out on many sites bi-annually.
+<figure>
+<img src = "https://jor-donegal.github.io/Background26/images/fig1.jpg">
+<figcaption>Fig 1. An AND gate, truth table and symbol.</figcaption>
+</figure>
 
-At this point in time, a revolution occurred in computer hardware that would be described these days as “disruptive” and is normally described as the fourth generation of computing technology. In the late 1960s, a small company called Intel were offered a contract to build a chip for a calculator (the Busicom Project) and in 1971, released what is generally accepted to be the world’s first microprocessor, a _Central Processor Unit_ (CPU) on a single chip. Only the CPU was in a single package; there were still a range of support chips needed as memory and for I/O support. A 4000 based system typically used a 4001 (metal-mask programmable ROM), a 4002 (320-bit RAM) and a 4003 (10b static shift register) in addition to the 4004 CPU. The release of the 4004 4-bit processor began the microcomputer era and the fourth generation of computer hardware. The advantages of the new technology were startling. As one of the designers (Faggin) said [1].
+In logic terms, IF A AND B THEN C. 
 
-_“...nine years earlier, at about this time of the year, I had just completed another computer, made with germanium transistors, that had about the same capabilities as this one, except the new one could all fit into a single printed circuit board, instead of a few hundred boards; had about ten times higher speed; and consumed almost 1,000 times less power. What a difference nine years make”._
+This behaviour is the Boolean operator __AND__. This is formally represented by the symbol and truth tables shown in Fig 1. By convention, we show our Boolean expressions as 1 and 0, the binary levels used in both digital logic and in computing.
 
-The first device designed as a general-purpose microprocessor was the 8080 c.1973. Intel intended this processor to have a ten-fold performance improvement over the 8008 and to resolve many of the problems which had emerged once the 8008 was understood. The 8080 was the earliest device I used in large scale process automation systems. Typically, a 19” rack mounted frame with a CPU board based on the 8080 and specialised measurement and I/O boards giving the capability to do control actions at 16 times per second. The 8085 c.1976 was just a repackaging of the 8080 with less support chips and some additional functionality. It was instruction set compatible with the 8080 and a straight swap-out in the process applications in which I used them. One characteristic is clear whilst reading commentaries and analysis of the time. Each new processor release starts with a line like _“designed to produce an order of magnitude increase in processing”_. Over a six-year period in the 1970s, _“throughput has improved one-hundredfold, the price of a CPU chip has declined from $300 to $3”_ [2].
+The second Boolean operator we will consider is the OR gate, Fig 2. In this case if either input A or input B is equal to 1 (true) then the output of the gate will be 1 (true).
 
-The market leading systems which I installed in the 1980s used mini-computers and processors from 1970s, ten-year old stable hardware on a decade of operating system and software development. 
+The output is 0 (false) only when both inputs are 0 (false).
 
-Then the new paradigm. Suddenly, the philosophy was no longer one of stability. It was one of smaller, faster, cheaper ad infinitum, with the fastest possible delivery of new product, and a business model based on high turnover rates of equipment and short life cycles; no one was building a Model-T (look it up!).
+<figure>
+<img src = "https://jor-donegal.github.io/Background26/images/fig2.jpg">
+<figcaption>Fig 2. An OR gate, truth table and symbol.</figcaption>
+</figure>
 
-When we look a Unix or the C programming language, we are looking back to the early 1970s.
+In electronics, we may sometimes buffer an input from an output. This is done for a range of reasons, mostly to reduce the electrical load on a circuit.  
 
-When we try to understand modern server hardware and operating systems, we have origins in the late 1970s and some of the work of Don Estridge’s PC group in IBM in the early 1980s.
+The triangle symbol on its own means it’s just a buffer, it does not change the Boolean value at its input to anything different at the output.
 
-My opinion: modern computing is driven by the needs of manufacturers to justify the fastest possible turnover of hardware and software. It is not driven by customer requirements like stability, secuirty, reliability of value.
+<figure>
+<img src = "https://jor-donegal.github.io/Background26/images/fig3.jpg">
+<figcaption>Fig 3. A buffer, truth table and symbol.</figcaption>
+</figure>
 
-[1] F. Faggin, "The Making of the First Microprocessor," IEEE Solid-State Circuits Magazine, vol. 1, no. 1, pp. 8-21, 2009, doi: 10.1109/MSSC.2008.930938.
-[2] Morse, Raveiel, Mazor, and Pohiman, "Intel Microprocessors–8008 to 8086," Computer, vol. 13, no. 10, pp.
+Sometimes we need a logic function which just inverts a Boolean variable. For example if we have a 1 and we need a 0, or vice versa. We refer to this as a NOT function.
+
+We can signify this in a few different ways. We can use any standard logic symbol with a circle on the output. The circle denotes an inversion.  Alternatively, we can put a bar over the variable symbol; a bar over A means NOT A. 
+
+<figure>
+<img src = "https://jor-donegal.github.io/Background26/images/fig4.jpg">
+<figcaption>Fig 4. An inverter, truth table and symbol.</figcaption>
+</figure>
+
+We can apply the same sort of approach to other logic gates. For example a NOT AND gate is a NAND gate. It has the same truth table as an AND gate, except with the output inverted. Similarly a NOT OR gate is called a NOR gate.
+
+<figure>
+<img src = "https://jor-donegal.github.io/Background26/images/fig5.jpg">
+<figcaption>Fig 5. NOR and NAND, truth table and symbol.</figcaption>
+</figure>
+
+The final Boolean operator we need to look at is the exclusive OR (XOR) gate. This is a special case or the OR gate where the output is 1 if either input is 1, but is 0 is all inputs are 1. Obviously we can also have an XNOR, which is an XOR with the output inverted. 
+
+<figure>
+<img src = "https://jor-donegal.github.io/Background26/images/fig6.jpg">
+<figcaption>Fig 6. XOR and XNOR, truth table and symbol.</figcaption>
+</figure>
+
+In early digital systems (c. 1950) we actually built logic gates out of transistors, resistors and other discrete components. 
+
+By the 1960’s we had integrated these transistors into single chunks of silicon we called integrated circuits or IC’s. This allowed for the next revolution in computing, which allowed us to get a CPU onto a single large circuit board. These early silicon chips used _transistor-transistor logic_ (TTL) and can be recognised by a 74xxx prefix. 
+
+For example, a 7400 was a package with 14 legs which had four NAND gates inside.
+
+<figure>
+<img src = "https://jor-donegal.github.io/Background26/images/fig7.jpg">
+<figcaption>Fig 7. 7400 TTL.</figcaption>
+</figure>
+
+In later circuits, the 74xxx series were superceeded by 4xxxx series, using CMOS transistors and lower power.
+
+Based on the availability of the early silicon chips, computers began to be built which were commercially viable. The IBM 360 series revolutionised early computing using these kinds of technologies. Throughout the 1970’s mini-computers and mainframes were developed and the computing industry blossomed.
+
+I still use these chips when designing and building simple prototypes.

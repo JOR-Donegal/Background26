@@ -1,73 +1,83 @@
-# Components
-Modern devices abstract way thier internal complexity. I want to try to explain how a computer works from the component level. 
-These notes are extracted from undergraduate Computer Architecture material I wrote c. 2014. 
+# Digital Logic
+In this section, I am going to build up gates into useful subsystems.
 
-The fundamental components we use in every electrical circuit include:
+## The Set/Rest Latch
+The first thing that we needed to do useful calculations with these gates was to have a way of storing numbers (remember, all numbers are represented in binary within the computer); this is the concept of _memory_. We need a circuit which can store a single bit of data; we call a circuit like this a _latch_. There are several types of latch available in TTL which were built into early computers (and are now integrated into much larger circuits).
 
-## Resistors
-Resistors are two-terminal devices that restrict, or resist, the flow of current. The larger the resistor the less current can flow through it for a given voltage as demonstrated by Ohm’s law: V= I*R. 
+<figure>
+<img src = "https://jor-donegal.github.io/Background26/images/fig8.jpg">
+<figcaption>Fig 8. SR Latch.</figcaption>
+</figure>
 
-Electrons flowing through a resistor collide with material in the resistor body, and it is these collisions that cause electrical resistance. These collisions cause energy to be dissipated in the form of heat or light (as in a toaster or an old incandescent light bulb). 
+One of these simple circuits was the _set-reset latch_ or _S-R Latch_. Very simple, if you raise the input S to a one, Q will set to 1 and ¯Q will reset to 0. If you raise the R input to 1, Q will reset to 0 and ¯Q will set to 1. Work your way through the circuit to confirm this!
 
-Resistance is measured in Ohms (Ω) and an ohm is defined by the amount of resistance that causes 1A of current to flow from a 1V source. 
+One of the problem with this circuit is that if you raise S and R to 1 at the same time, the circuit acts in an unpredictable manner. Again, try working your way through the circuit to see.
 
-The amount of power (in Watts) dissipated in a resistor can be calculated using the equation P= I*V = I^2^R A resistor that can dissipate about 5 Watts of power would be about the size of a pen and a resistor that can only dissipate 1/8 Watt is about the size of a grain of rice. 
+Up to now, all the digital gates and circuits we have looked at have been deterministic, that means that for the inputs given, there is only one possible outcome. Once we start dealing with circuits which can store bits (memory) we need to understand the concept of _state_; a circuit can be in a particular state before we encounter it and the output of any action may depend on the state the circuit was in before we started.
 
-If a resistor is placed in a circuit where it must dissipate more that its intended power, it will melt!
+## Clocks and Timing
+In a real computer, most things are synchronised by a timing signal. Have a look at the circuit below where we introduce a timing signal, known as a _clock_. The AND gates block any inputs from either S or R until the clock signal is high. Now we can control when the set or reset command are sampled.
 
-A standard colour coding scheme exists for resistors and any experienced electronics person can tell the value of a resistor at a glance! However, as the number of colur bands can vary, it’s always better to check with a _digital volt meter_ (DVM).
+<figure>
+<img src = "https://jor-donegal.github.io/Background26/images/fig9.jpg">
+<figcaption>Fig 9. Clocked SR Latch.</figcaption>
+</figure>
 
-Look up resistor colour coding now.
+## The D Latch
+In a D Latch, we allow only one input, directly to the set AND gate at the top of the diagram, and via an inverter to the reset AND at the bottom of the diagram. When D=1 and the clock signal is high, we set Q=1. When D=0 and the clock signal is high, we reset Q=0. Work your way through the circuit to confirm this. This is a pretty good circuit but there is one issue. The clock pulse is quite wide and the latch can be set at any stage while the pulse is high. This is none too precise, especially when we are trying to get the maximum speed and performance out of our electronics. 
 
-## Capacitors
-A capacitor (called a condenser in the old days!) is a passive two-terminal device that can store electric energy in the form of charged particles. A capacitor is like a reservoir of charge that takes time to fill and empty. 
+<figure>
+<img src = "https://jor-donegal.github.io/Background26/images/fig10.jpg">
+<figcaption>Fig 10. D Latch.</figcaption>
+</figure>
 
-The construction of capacitors is more varied than that or resistors, but the general principle is that two conductive plates are separated by is non-conductive dielectric.
+## Edge Detection
+One of the ways we can get best performance out a clocked circuit is to activate the circuit or the edge of the pulse rather than on the pulse itself. Consider the circuit below. Each gate has a propagation delay to activate. Suppose each gate takes 1 ns to activate and a starts as 0. If a is at 0 then b must be at 1 because of the inverter. When the pulse goes high at a it goes high at c at the same time. However, the inverter causes a delay of 1 ns before b becomes 0. For this brief period, both b and c were 1 and the AND gate output becomes 1 for this brief time period. We have detected the rising edge of the pulse.
 
-When there is a potential difference (voltage) across the conductors, a static electric field develops across the dielectric, causing positive charge to collect on one plate and negative charge on the other plate. 
+<figure>
+<img src = "https://jor-donegal.github.io/Background26/images/fig11.jpg">
+<figcaption>Fig 11. Edge Detection.</figcaption>
+</figure>
 
-Energy is stored in the electrostatic field.
+One other interesting thing we can do here is to detect both the rising and falling edge. That would give us a good narrow pulse at double the rate of the clock. I wonder where we might come across Double Data Rate (DDR) being used. Try an Internet search if you haven’t come across this before.
 
-The voltage across a capacitor is proportional to the amount of charge it is storing, the more charge added to a capacitor of a given size, the larger the voltage across the capacitor. It is not possible to instantaneously move charge to or from a capacitor, so it is not possible to instantaneously change the voltage across a capacitor. It is this property that makes capacitors useful in many applications.
+We can use an edge trigger circuit to trigger a D Latch to make it much more precise. In the circuit below, the clock is intercepted by a trigger circuit to make an edge-trigger circuit. A latch which is edge triggered is called a flip-flop.
 
-Capacitance is measured in Farads. A one Farad capacitor can store one Coulomb of charge at one volt. For engineering on a small scale (i.e., hand-held or desk-top devices), a one Farad capacitor stores far too much charge to be of general use (it would be like a car having a 1000 gallon petrol tank). 
+<figure>
+<img src = "https://jor-donegal.github.io/Background26/images/fig12.jpg">
+<figcaption>Fig 12. Flip-flop.</figcaption>
+</figure>
 
-More useful capacitors are measured in micro-farads (uF) or pico-farads (pF). The terms "milli-farad“ and "nano-farad" are rarely used. Large capacitors often have their value printed plainly on them, such as "10 uF" (for 10 microfards).
+Flip-flops are very commonly used in all kinds of digital logic circuits. There are several different block circuits used. To keep things simple, we abstract the details away. We can treat a half adder like a black box, not worrying too much about what is inside it. This allows us to simplify our diagrams, getting more and more unnecessary detail out of the way so we can understand more complex circuits more easily.
 
-## Inductors
-An inductor (also called a choke or coil) is a passive two-terminal electrical device that stores energy. Although this sounds a bit like a capacitor, it is different in that a capacitor stores energy in an electric field, an inductor stores it in its magnetic field. 
-In practical terms, inductance is the characteristic of an electrical circuit that opposes the starting, stopping, or a change in value of current. Even a perfectly straight length of wire has some inductance. Current flowing in a conductor produces a magnetic field surrounding the conductor; when the current changes, the magnetic field changes. This causes a relative motion between the magnetic field and the conductor, and a back electromotive force (EMF) is induced in the conductor. The polarity of the back electromotive force is in the opposite direction to the applied voltage of the conductor. The overall effect will be to oppose a change in current magnitude.
-Some effects we may notice are that the start-up current drawn by an electric motor is much higher than the current required to run the motor (the coil has to “charge”).   
+- A D Latch is triggered by a positive clock
+- A D Latch is triggered by a negative clock
+- The triangle indicates a positive edge triggered flip-flop
+- The triangle and circle indicates a negative edge triggered flip-flop
 
-The symbol for inductance is L and the basic unit of inductance is the HENRY (H). To quantify the unit, an inductor with an inductance of 1H produces an EMF of 1V when the current through the inductor changes at the rate of 1A per second.
+<figure>
+<img src = "https://jor-donegal.github.io/Background26/images/fig13.jpg">
+<figcaption>Fig 13. Triggering.</figcaption>
+</figure>
 
-In appearance, an inductor can be as simple as a coil of copper wire. They can be cylindrical-shaped or torus shaped (the engineer’s term for shaped like a doughnut!)
+By combining four flip-flops in an array, we can create a four bit memory store, a store which could hold half a byte of information. We could use this as memory, or we could use it as a temporary area to store data that we need to process; we call this a _register_.
 
-More commonly, an inductor will have a core of a ferromagnetic material.  The core material has the effect of increasing the magnitude of the magnetic field and reducing its physical size.
+<figure>
+<img src = "https://jor-donegal.github.io/Background26/images/fig14.jpg">
+<figcaption>Fig 14. 4 bit memory.</figcaption>
+</figure>
 
-## Diodes
-Very frequently we need electronic components which can act like one way valves; current will only pass one way through the device, it will not pass back.
-These devices are called diodes. They are two terminal devices and are used for a range of purposes. They consist of two layers of a semiconductor (normally silicon) sandwiched together. 
+When the circuit starts up, everything is at zero. I set values for D0 to D3 on the input bus. When the values are set and I want to write to the register, I toggle the write switch. This enables the clock through the AND gate and creates an edge to clock the D flip flops. They then store whatever is on the input bus. The output is available on the output bus indefinetely or until it is overwritten or the power is removed. 
 
-Almost every power supply will have a few diodes combined with a transformer and a few capacitors.
+As with all things computing, once we understand how something complex works inside, we build an abstraction to hide the detail. A block diagram of a register might look something like this.
 
-One version of the diode is the LED or light emitting diode. A property of the joint between the two layers causes light to be emitted. 
+<figure>
+<img src = "https://jor-donegal.github.io/Background26/images/fig15.jpg">
+<figcaption>Fig 15. 8 bit register.</figcaption>
+</figure>
 
-## Transistors
-A transistor is an active electronic device with (at least) three terminals. They generally consist of three layers of a semiconductor (normally silicon) sandwiched together. 
-
-A transistor can act like an amplifier. A voltage or current applied to an input control terminal to change the current flowing through another pair of output terminals; this property is called gain. Because the controlled power can be higher than the controlling power, a transistor can amplify a signal. This is the basis for the audio subsystems of all amplifiers, stereo systems, iPods, etc.
-
-A transistor can act also like a switch. When no voltage is applied to an input control terminal, no current flows through another pair of output terminals. Alternatively, when a voltage over a particular threshold is applied to the input control terminal, then current flows through the output terminals.  This is the basis for digital logic and all modern binary computers.
-
-Because the controlled power can be higher than the controlling power, a transistor can switch a large current using only a small controlling current. This is the basis of all power electronics.
-
-The original transistors we used were called bipolar transistors. 
-
-These are three terminal active devices that can conduct current between two terminals (the collector and the emitter) when a third terminal (the base) is driven by an appropriate signal.
-
-The transistor switches used in modern digital circuits are called “Metal Oxide Semiconductor Field Effect Transistors”, or MOSFETs or just FETs. FETs are also three terminal devices that can conduct current between two terminals (the source and the drain) when a third terminal (the gate) is driven by an appropriate logic signal.
-FETs can be thought as electrically controllable ON/OFF switches
+Some registers have a very defined purpose and will have extra functionality built into their logic. For example, there are times when we need sequential counters, these may have functions like increment or decrement built in.  
+Some mathematical manipulations require us to shift the bits in a register left or right, this may also be built in. 
 
 
 
