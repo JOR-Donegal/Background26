@@ -1,4 +1,4 @@
-# Digital Logic
+# Digital Logic - Memory
 In this section, I am going to build up gates into useful subsystems.
 
 ## The Set/Rest Latch
