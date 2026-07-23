@@ -60,9 +60,9 @@ The final Boolean operator we need to look at is the exclusive OR (XOR) gate. Th
 <figcaption>Fig 6. XOR and XNOR, truth table and symbol.</figcaption>
 </figure>
 
-In early digital systems (c. 1950) we actually built logic gates out of transistors, resistors and other discrete components. 
+In early digital systems (c. 1950) we actually built logic gates out of transistors, resistors and other discrete components.
 
-By the 1960’s we had integrated these transistors into single chunks of silicon we called integrated circuits or IC’s. This allowed for the next revolution in computing, which allowed us to get a CPU onto a single large circuit board. These early silicon chips used _transistor-transistor logic_ (TTL) and can be recognised by a 74xxx prefix. 
+By the 1960’s we had integrated these transistors into single chunks of silicon we called integrated circuits or IC’s. This allowed for the next revolution in computing, which allowed us to get a CPU onto a single large circuit board. These early silicon chips used _transistor-transistor logic_ (TTL) and can be recognized by a 74xxx prefix. 
 
 For example, a 7400 was a package with 14 legs which had four NAND gates inside.
 
@@ -71,10 +71,12 @@ For example, a 7400 was a package with 14 legs which had four NAND gates inside.
 <figcaption>Fig 7. 7400 TTL.</figcaption>
 </figure>
 
-In later circuits, the 74xxx series were superceeded by 4xxxx series, using CMOS transistors and lower power.
+In later circuits, the 74xxx series were superseded by 4xxxx series, using CMOS transistors and lower power.
 
-Based on the availability of the early silicon chips, computers began to be built which were commercially viable. The IBM 360 series revolutionised early computing using these kinds of technologies. Throughout the 1970’s mini-computers and mainframes were developed and the computing industry blossomed.
+Based on the availability of the early silicon chips, computers began to be built which were commercially viable. The IBM 360 series revolutionized early computing using these kinds of technologies. Throughout the 1970’s mini-computers and mainframes were developed and the computing industry blossomed.
 
-I still use these chips when designing and building simple prototypes.
+I still use these chips when designing and building simple prototypes. 
+
+These logic gates are still the building blocks of all computer equipment.
 
 Do some background reading and identify some circuits that use transistors to implement logic gates.
