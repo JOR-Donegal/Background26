@@ -1,33 +1,35 @@
 # Components
 
-Modern devices abstract way their internal complexity. I want to try to explain how a computer works from the component level upwards. 
+Modern devices abstract away their internal complexity. I want to try to explain how a computer works from the component level upwards.
 These notes are extracted from undergraduate Computer Architecture material I wrote c. 2014.
 
 The fundamental components we use in every electrical circuit include:
 
 ## Resistors
 
-Resistors are two-terminal devices that restrict, or resist, the flow of current. The larger the resistor the less current can flow through it for a given voltage as demonstrated by Ohm’s law: V= I*R. 
+_Resistors_ are two-terminal devices that restrict, or resist, the flow of current. The larger the resistor the less current can flow through it for a given voltage as demonstrated by Ohm’s law: V= I*R.
 
-Electrons flowing through a resistor collide with material in the resistor body, and it is these collisions that cause electrical resistance. These collisions cause energy to be dissipated in the form of heat or light (as in a toaster or an old incandescent light bulb).
+Electrons flowing through a resistor "collide" with material in the resistor body, and it is these collisions that cause electrical resistance. These collisions cause energy to be dissipated in the form of heat or light (as in a toaster or an old incandescent light bulb).
 
-Resistance is measured in Ohms (Ω) and an ohm is defined by the amount of resistance that causes 1A of current to flow from a 1V source. 
+Resistance is measured in Ohms (Ω) and an ohm is defined by the amount of resistance that causes 1A of current to flow from a 1V source.
 
-The amount of power (in Watts) dissipated in a resistor can be calculated using the equation P= I*V = I^2^R A resistor that can dissipate about 5 Watts of power would be about the size of a pen and a resistor that can only dissipate 1/8 Watt is about the size of a grain of rice. 
+The amount of power (in Watts) dissipated in a resistor can be calculated using the equation P= I*V = I^2^R
+
+A resistor that can dissipate about 5 Watts of power would be about the size of a pen and a resistor that can only dissipate 1/8 Watt is about the size of a grain of rice.
 
 If a resistor is placed in a circuit where it must dissipate more that its intended power, it will melt!
 
-A standard color coding scheme exists for resistors and any experienced electronics person can tell the value of a resistor at a glance! However, as the number of colur bands can vary, it’s always better to check with a _digital volt meter_ (DVM).
+A standard color coding scheme exists for resistors and any experienced electronics person can tell the value of a resistor at a glance! However, as the number of color bands can vary, it’s always better to check with a _digital volt meter_ (DVM).
 
 Look up resistor color coding now.
 
 ## Capacitors
 
-A capacitor (called a condenser in the old days!) is a passive two-terminal device that can store electric energy in the form of charged particles. A capacitor is like a reservoir of charge that takes time to fill and empty.
+A _capacitor_ (called a condenser in the old days) is a passive two-terminal device that can store electric energy in the form of charged particles. A capacitor is like a reservoir of charge that takes time to fill and empty.
 
-The construction of capacitors is more varied than that or resistors, but the general principle is that two conductive plates are separated by is non-conductive dielectric.
+The construction of capacitors is more varied than that or resistors, but the general principle is that two conductive plates are separated by is non-conductive _dielectric_.
 
-When there is a potential difference (voltage) across the conductors, a static electric field develops across the dielectric, causing positive charge to collect on one plate and negative charge on the other plate.
+When there is a _potential difference_ (voltage) across the conductors, a static electric field develops across the dielectric, causing positive charge to collect on one plate and negative charge on the other plate.
 
 Energy is stored in the electrostatic field.
 
@@ -39,7 +41,7 @@ More useful capacitors are measured in micro-farads (uF) or pico-farads (pF). Th
 
 ## Inductors
 
-An inductor (also called a choke or coil) is a passive two-terminal electrical device that stores energy. Although this sounds a bit like a capacitor, it is different in that a capacitor stores energy in an electric field, an inductor stores it in its magnetic field. 
+An _inductor_ (also called a choke or coil) is a passive two-terminal electrical device that stores energy. Although this sounds a bit like a capacitor, it is different in that a capacitor stores energy in an electric field, an inductor stores it in its magnetic field. 
 In practical terms, inductance is the characteristic of an electrical circuit that opposes the starting, stopping, or a change in value of current. Even a perfectly straight length of wire has some inductance. Current flowing in a conductor produces a magnetic field surrounding the conductor; when the current changes, the magnetic field changes. This causes a relative motion between the magnetic field and the conductor, and a back electromotive force (EMF) is induced in the conductor. The polarity of the back electromotive force is in the opposite direction to the applied voltage of the conductor. The overall effect will be to oppose a change in current magnitude.
 Some effects we may notice are that the start-up current drawn by an electric motor is much higher than the current required to run the motor (the coil has to “charge”).   
 
@@ -52,7 +54,7 @@ More commonly, an inductor will have a core of a ferromagnetic material.  The co
 ## Diodes
 
 Very frequently we need electronic components which can act like one way valves; current will only pass one way through the device, it will not pass back.
-These devices are called diodes. They are two terminal devices and are used for a range of purposes. They consist of two layers of a semiconductor (normally silicon) sandwiched together.
+These devices are called _diodes_. They are two terminal devices and are used for a range of purposes. They consist of two layers of a semiconductor (normally silicon) sandwiched together.
 
 Almost every power supply will have a few diodes combined with a transformer and a few capacitors.
 
@@ -60,7 +62,7 @@ One version of the diode is the LED or light emitting diode. A property of the j
 
 ## Transistors
 
-A transistor is an active electronic device with (at least) three terminals. They generally consist of three layers of a semiconductor (normally silicon) sandwiched together.
+A _transistor_ is an active electronic device with (at least) three terminals. They generally consist of three layers of a semiconductor (normally silicon) sandwiched together.
 
 A transistor can act like an amplifier. A voltage or current applied to an input control terminal to change the current flowing through another pair of output terminals; this property is called gain. Because the controlled power can be higher than the controlling power, a transistor can amplify a signal. This is the basis for the audio subsystems of all amplifiers, stereo systems, iPods, etc.
 
@@ -74,6 +76,3 @@ These are three terminal active devices that can conduct current between two ter
 
 The transistor switches used in modern digital circuits are called “Metal Oxide Semiconductor Field Effect Transistors”, or MOSFETs or just FETs. FETs are also three terminal devices that can conduct current between two terminals (the source and the drain) when a third terminal (the gate) is driven by an appropriate logic signal.
 FETs can be thought as electrically controllable ON/OFF switches
-
-
-
