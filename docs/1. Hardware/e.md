@@ -29,7 +29,7 @@ When we design memory, we tend to do so as a grid of rows and columns. Imagine a
 
 <figure>
 <img src = "https://jor-donegal.github.io/Background26/images/table4.jpg">
-<figcaption>Table 4. Rom and Column select.</figcaption>
+<figcaption>Table 4. Row and Column select.</figcaption>
 </figure>
 
 We can only read/write one nibble at a time, so we are going to need to be able to select which nibble we want to read from. Let’s call that the address of the nibble of data. So we need some way to select the correct address.
